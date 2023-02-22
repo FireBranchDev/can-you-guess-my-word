@@ -15,7 +15,6 @@ from play import play
 
 
 def main(test=False):
-    """main entry point for Can You Guess My Word"""
     if test:
         return doctest.testmod()
 
