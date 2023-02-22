@@ -2,11 +2,10 @@ import doctest
 
 from constants import (
     CONSOLE_COLOUR_EXACT,
-    CONSOLE_COLOUR_MISS,
     CONSOLE_COLOUR_MISPLACED,
+    CONSOLE_COLOUR_MISS,
     CONSOLE_COLOUR_RESET,
     EXACT,
-    MISS,
     MISPLACED,
 )
 
@@ -45,24 +44,19 @@ def format_score(guess, score):
     guess_score_format = " "
     for result in score:
         if result == EXACT:
-            guess_score_format = (
-                guess_score_format + CONSOLE_COLOUR_EXACT + "* " + CONSOLE_COLOUR_RESET
-            )
+            guess_score_format = guess_score_format + CONSOLE_COLOUR_EXACT + "* "
+        elif result == MISPLACED:
+            guess_score_format = guess_score_format + CONSOLE_COLOUR_MISPLACED + "+ "
+        else:
+            guess_score_format = guess_score_format + CONSOLE_COLOUR_MISS + "- "
 
-        if result == MISPLACED:
-            guess_score_format = (
-                guess_score_format
-                + CONSOLE_COLOUR_MISPLACED
-                + "+ "
-                + CONSOLE_COLOUR_RESET
-            )
-
-        if result == MISS:
-            guess_score_format = (
-                guess_score_format + CONSOLE_COLOUR_MISS + "- " + CONSOLE_COLOUR_RESET
-            )
-
-    return guess_formatted.strip() + "\n" + guess_score_format.strip()
+    return (
+        CONSOLE_COLOUR_RESET
+        + guess_formatted.strip()
+        + "\n"
+        + guess_score_format.strip()
+        + CONSOLE_COLOUR_RESET
+    ).strip()
 
 
 if __name__ == "__main__":
