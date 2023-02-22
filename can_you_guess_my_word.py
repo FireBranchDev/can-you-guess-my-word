@@ -18,14 +18,14 @@ def main(test=False):
     """main entry point for Can You Guess My Word"""
     if test:
         return doctest.testmod()
-    play_again = True
 
-    while play_again:
+    continue_game = True
+    while continue_game:
         play()
         print("\nDo you want to play again?")
-        play_again_answer = input("y/n: ")
 
-        play_again = play_again_answer.lower() == "y"
+        answer = input("y/n: ")
+        continue_game = answer.lower() == "y"
 
     print("Thanks for playing, hope to see you again")
 
