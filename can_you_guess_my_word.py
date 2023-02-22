@@ -7,6 +7,7 @@ The game will randomly pick a word that the user must guess within
 the maximum number of attempts. For each guess the player will be
 given feedback to whether the letter is in the correct spot,
 in the word or not in the word at all.
+
 """
 
 from play import play
