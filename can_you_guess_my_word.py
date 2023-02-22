@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 
 """Can You Guess My Word
+
+Can You Guess My Word is a cli version of the popular Wordle game.
+The game will randomly pick a word that the user must guess within
+the maximum number of attempts. For each guess the player will be
+given feedback to whether the letter is in the correct spot,
+in the word or not in the word at all.
 """
 
 import doctest
