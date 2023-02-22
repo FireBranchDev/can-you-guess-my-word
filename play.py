@@ -13,7 +13,7 @@ from track_target_words import track_target_words
 
 
 def play():
-    """Code that controls the interactive game play"""
+    """Controls game logic"""
     target_word = get_target_word(TARGET_WORDS)
     valid_words = get_valid_words(ALL_WORDS)
     attempts = 0
@@ -35,13 +35,11 @@ def play():
         print(format_score(guess, score))
 
         if is_correct(score):
-            winner_output = f"Winner: word guessed in {attempts} attempts"
             game_stats(winner=True)
             track_target_words(target_word)
-            print(winner_output)
+            print(f"Winner: word guessed in {attempts} attempts")
             break
-
-    if attempts == MAX_ATTEMPTS:
+    else:
         game_stats(winner=False)
         track_target_words(target_word)
         print(f"The word was {target_word}.")
