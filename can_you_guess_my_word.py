@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Can You Guess My Word
+"""Can You Guess My Word.
 
 Can You Guess My Word is a cli version of the popular Wordle game.
 The game will randomly pick a word that the user must guess within
