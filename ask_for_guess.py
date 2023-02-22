@@ -1,16 +1,17 @@
 from constants import GUESS_ATTEMPT_MSG, INVALID_GUESS_ATTEMPT_MSG, WORD_LENGTH
 
 
-def ask_for_guess(valid_words: list[str]) -> str | None:
-    """Requests a guess from the user directly from stdout/in and ensures the
-    word is valid and mets the critera.
+def ask_for_guess(valid_words: list[str]) -> str:
+    """Prompts the player for a guess.
 
+    Ensures player's guess to met the word requirements.
 
     Args:
-        valid_words : list : list of valid words
+        valid_words: A list of valid words.
 
-    Return:
-        string : user's guess
+    Returns:
+        The user's guess.
+
     """
     guess = input(GUESS_ATTEMPT_MSG)
     while guess.lower() not in valid_words or len(guess) != WORD_LENGTH:
