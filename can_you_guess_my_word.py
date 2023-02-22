@@ -9,15 +9,10 @@ given feedback to whether the letter is in the correct spot,
 in the word or not in the word at all.
 """
 
-import doctest
-
 from play import play
 
 
-def main(test=False):
-    if test:
-        return doctest.testmod()
-
+def main():
     continue_game = True
     while continue_game:
         play()
@@ -30,4 +25,4 @@ def main(test=False):
 
 
 if __name__ == "__main__":
-    print(main(test=False))
+    main()
