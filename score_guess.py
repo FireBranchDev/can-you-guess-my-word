@@ -68,30 +68,29 @@ def score_guess(guess_word, target_word):
 
     for letter_position, letter in enumerate(guess_word):
         if letter in target_word:
-            if letters_remaining[letter] > 0:
-                while letters_remaining[letter] > 0:
-                    if letter == target_word[letter_position]:
-                        score_result.append(EXACT)
-                        score_location[letter].append((letter_position, EXACT))
-                        letters_remaining[letter] -= 1
-                        break
-                    score_result.append(MISPLACED)
-                    score_location[letter].append((letter_position, MISPLACED))
+            while letters_remaining[letter] > 0:
+                if letter == target_word[letter_position]:
+                    score_result.append(EXACT)
+                    score_location[letter].append((letter_position, EXACT))
                     letters_remaining[letter] -= 1
                     break
-            elif letter == target_word[letter_position]:
-                score_result.append(EXACT)
-                score_location[letter].append((letter_position, EXACT))
-
-                for item in score_location.items():
-                    if item[0] == letter:
-                        for k in item[1]:
-                            if k[0] == letter_position:
-                                break
-                            score_result[k[0]] = MISS
+                score_result.append(MISPLACED)
+                score_location[letter].append((letter_position, MISPLACED))
+                letters_remaining[letter] -= 1
+                break
             else:
-                score_result.append(MISS)
-                score_location[letter].append((letter_position, MISS))
+                if letter == target_word[letter_position]:
+                    score_result.append(EXACT)
+                    score_location[letter].append((letter_position, EXACT))
+
+                    for item in score_location.items():
+                        if item[0] == letter:
+                            for k in item[1]:
+                                if k[0] != letter_position:
+                                    score_result[k[0]] = MISS
+                else:
+                    score_result.append(MISS)
+                    score_location[letter].append((letter_position, MISS))
         else:
             score_result.append(MISS)
             score_location[letter].append((letter_position, MISS))
